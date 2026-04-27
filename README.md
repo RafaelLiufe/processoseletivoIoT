@@ -20,7 +20,7 @@ No projeto, o microcontrolador ESP32 simula a ação da ECU de um sistema ABS re
 
 ## 2️⃣ Arquitetura do Sistema Embarcado
 
-<img src="./assets/Circuito.png" width="300">
+<img src="./assets/Circuito.png" width="500">
 
  **Bibliotecas Utilizadas**
 
