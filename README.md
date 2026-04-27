@@ -1,331 +1,107 @@
 # Processo Seletivo – Intensivo Maker | IoT
 ## Etapa Prática – Sistemas Embarcados
 
-Bem-vindo(a) à **etapa prática do processo seletivo para o Intensivo Maker | IoT**.
+**Relatório do Projeto – Sistema de freio ABS**
 
-Esta atividade tem como objetivo avaliar suas competências em **Sistemas Embarcados**, com foco em **organização de projeto, lógica de firmware e simulação de hardware**, a partir da aplicação prática dos conhecimentos adquiridos nos cursos EAD da etapa anterior.
-
-> 🎯 **Objetivo principal**  
-> Avaliar sua capacidade de **planejar, estruturar e desenvolver** uma solução funcional de sistemas embarcados, seguindo boas práticas de engenharia.
-
----
-
-## 🏁 Passo 0 – Antes de Tudo
-
-Se você **nunca utilizou Git ou GitHub**, não se preocupe.  
-Siga atentamente os passos abaixo — eles fazem parte do processo de aprendizagem esperado.
-
----
-
-### 1️⃣ Criação de Conta no GitHub
-
-1. Acesse: https://github.com  
-2. Clique em **Sign up**  
-3. Crie sua conta gratuita seguindo as instruções da plataforma  
-
-> 📌 O GitHub será utilizado para:
-> - Envio do seu projeto  
-> - Versionamento do código  
-> - Correção e validação automática via GitHub Actions  
-
----
-
-### 2️⃣ Instalação do Git
-
-O **Git** é a ferramenta responsável pelo controle de versões do seu código.
-
-### Windows
-Baixe e instale o **Git Bash**:  
-https://git-scm.com/downloads
-
-### Linux / macOS
-Verifique se o Git já está instalado:
-
-```bash
-git --version
-```
-> Caso não esteja, instale pelo gerenciador de pacotes do seu sistema.
-
-## ⚙ Passo 1 – Preparando o Ambiente
-
-Para desenvolver o desafio, você deverá criar uma cópia deste repositório no seu GitHub.
-
-### 1️⃣ Fork do Repositório
-No canto superior direito desta página, clique em Fork
-
-<img width="219" height="45" alt="image" src="https://github.com/user-attachments/assets/5d629626-513a-445c-ba0f-e5bb3e225187" />
-
-
-Uma cópia do repositório será criada no seu perfil do GitHub
-
-> 🔎 O Fork permite que você trabalhe de forma independente, sem alterar o repositório original do processo seletivo.
-
-### 2️⃣ Clone do Repositório
-
-No repositório do seu Fork, clique em **<> Code**
-
-<img width="149" height="52" alt="image" src="https://github.com/user-attachments/assets/abbd331b-a005-4633-89c6-afd16acbe828" />
-
-Copie a URL e execute no terminal:
-
-```bash
-git clone https://github.com/SEU_USUARIO/nome-do-repositorio.git
-cd nome-do-repositorio
-```
-
-> O comando git clone cria uma cópia local do repositório para desenvolvimento.
-
-### 3️⃣ Preparação do Ambiente de Execução
-
-Você pode executar o projeto de duas formas. Escolha apenas uma.
-
-#### 🔹 Opção A – Ambiente Python Local
-
-**Requisitos:**
-
-- Python 3.10 ou 3.11
-- pip
-
-**Instale as dependências:**
-
-```bash
-pip install -r requirements.txt
-```
-
-#### 🔹 Opção B – Dev Container (Recomendado)
-
-Este repositório inclui um Dev Container, garantindo um ambiente padronizado.
-
-**Requisitos:**
-
-- VS Code
-- Docker instalado
-- Extensão Dev Containers
-
-**Passos:**
-
-1. Abra o repositório no VS Code
-2. Clique em “Reopen in Container”
-3. Aguarde a criação automática do ambiente
-
-> ➡️ Todas as dependências serão instaladas automaticamente.
-
-## 🔐 Passo 2 – Criando sua API Key do Wokwi
-
-A simulação do projeto será executada automaticamente via GitHub Actions, utilizando o Wokwi CLI.
-
-Para isso, você precisa gerar uma API Key.
-
-1. Acesse: https://wokwi.com/dashboard/ci
-2. Faça login (Google ou GitHub)
-3. Clique em Generate API Token
-4. Copie a chave gerada (exemplo: wokwi-xxxxxxxx)
-
->⚠️ Importante
-- Nunca faça commit dessa chave
-- Ela deve ser armazenada apenas como secret no GitHub
-
-## 🔒 Passo 3 – Configurando a API Key no GitHub (Secrets)
-
-**No repositório do seu Fork:**
-
-1. Vá em Settings
-2. Acesse Secrets and variables → Actions
-3. Clique em New repository secret
-4. Nome: WOKWI_API_KEY
-5. Valor: sua chave gerada
-6. Salve
-
-> ✔️ As GitHub Actions do template já estão preparadas para usar essa variável automaticamente.
-
-## 🧠 Passo 4 – Desafio Técnico
-
-Você deverá desenvolver um projeto de sistemas embarcados simulados, utilizando Python e Wokwi.
-
-### 📁 Estrutura mínima esperada
-
-```text
-/project
- ├── src/
- │   └── main.py        # Código principal do projeto
- ├── wokwi.toml         # Configuração da simulação
- ├── diagram.json       # Circuito no Wokwi
- └── README.md          # Explicação do seu projeto
-```
-
-> Você pode expandir essa estrutura se desejar, desde que mantenha os arquivos essenciais.
-
-### 🛠 Como Desenvolver seu Projeto
-
-O desenvolvimento acontece principalmente nos arquivos abaixo:
-
-#### 1️⃣ src/main.py
-
-- Código Python executado na simulação
-- Implementa a lógica do sistema embarcado
-- Exemplos: controle de LEDs, leitura de sensores, estados, temporizações, etc.
-
-#### 2️⃣ diagram.json
-
-- Define o hardware virtual do projeto
-- Componentes como:
-  - LEDs
-  - Botões
-  - Sensores
-  - Placa microcontroladora
-
-#### 3️⃣ wokwi.toml
-
-- Configura a simulação:
-  - Tipo de placa
-  - Framework
-  - Dependências adicionais
-
-#### 4️⃣ Commit e Push
-
-Após suas alterações:
-
-```bash
-git add .
-git commit -m "Descrição clara do que foi feito"
-git push
-```
-### ⚙ Execução Automática (GitHub Actions)
-
-A cada push, o GitHub Actions irá automaticamente:
-
-- Executar o pipeline de build
-- Rodar a simulação via Wokwi CLI
-- Validar que o projeto executa sem erros
-
-### 📌 Caso algo falhe:
-
-- Vá até a aba Actions
-- Analise os logs da execução
-- Corrija e envie novamente
-
-## 📊 Critérios de Avaliação
-
-Esta etapa será avaliada considerando:
-
-- Funcionamento correto da simulação
-- Código organizado e legível
-- Estrutura de arquivos correta
-- Uso adequado do Wokwi
-- Commits claros e bem descritos
-- Projeto executando sem falhas nas Actions
-
----
-
-## 📎 Submissão Final
-
-Após concluir o desenvolvimento:
-
-1. Verifique se o projeto **executa sem erros** nas GitHub Actions  
-2. Confirme que todos os arquivos obrigatórios estão presentes  
-3. Copie o link do **seu repositório no GitHub**
-
-📤 Envie o link conforme as orientações do processo seletivo na plataforma **Moodle**.
-
----
-
-## 📝 Relatório do Candidato
-
-O arquivo **`README.md` do seu repositório** deve ser utilizado como o  
-**relatório final do desafio técnico**.
-
-Preencha todas as seções abaixo de forma **clara, objetiva e técnica**.
-
-> 💡 **Dica importante**  
-> Não é necessário um relatório extenso.  
-> O principal critério é demonstrar **clareza nas decisões técnicas**, organização e entendimento do sistema embarcado desenvolvido.
-
----
-
-### 👤 Identificação do Candidato
-
-- **Nome completo:**  
-- **GitHub:**  
-
----
+Identificação do Candidato: Rafael da Silva Sousa
 
 ## 1️⃣ Visão Geral da Solução
 
-Descreva, em poucas palavras:
+Este projeto objetiva implementar um sistema de segurança de freio do tipo ABS (Antilock Braking System) utilizando um microcontrolador ESP32 como módulo ABS, potenciômetros deslizantes para simular acelerador e freio e um LED que alerta ao condutor sobre a ativação do sistema.
 
-- Qual é o objetivo do seu projeto  
-- O que o sistema embarcado simulado faz  
-- Como o usuário interage com ele (se aplicável)
+Tal solução se demonstra útil como suporte didático a cursos de mecânica que necessitam de uma abordagem simples ao ensino prático de funcionamento do sistema de freio ABS, que é, hoje, o sistema de segurança de freios mais utilizado no mundo.
 
----
+<img src="./assets/Esquema.png" width="500">
+<i>Esquema visual do funcionamento de um sistema de segurança ABS</i>
+
+O sistema de segurança de freios ABS baseia-se na ação de uma ECU (Electronic Control Unit) que monitora constantemente a velocidade do veículo e a pressão dirigida ao manete de freio e envia sinais para as pinças controladoras dos freios na(s) roda(s). Caso a velocidade atual do veículo esteja acima de uma certa velocidade mínima (geralmente 20 km/h) e se distribua sobre o manete de freio uma pressão alta em um tempo muito curto, a ECU envia sinais para as pinças de freio na roda de modo a evitar o travamento desta, intercalando as frenagens.
+
+No projeto, o microcontrolador ESP32 simula a ação da ECU de um sistema ABS real, recebendo os sinais dos potenciômetros conectados à porta 34 (punho do acelerador) e à porta 35 (manete de freio) e enviando sinais para o LED de forma a indicar visualmente três estados: ausência de frenagem (LED apagado), frenagem segura em qualquer velocidade (LED com luz contínua) ou atuação do modo PÂNICO (LED piscando). Além disso, alertas de texto são printados no terminal de forma a mostrar o valor de variáveis como velocidade atual e o status do sistema ABS.
 
 ## 2️⃣ Arquitetura do Sistema Embarcado
 
-Explique a arquitetura lógica do seu projeto, abordando:
+<img src="./assets/Circuito.png" width="300">
 
-- Fluxo principal do programa (`main.py`)  
-- Estrutura de estados, loops ou temporizações  
-- Como os componentes interagem entre si  
+ **Bibliotecas Utilizadas**
 
-Se desejar, utilize tópicos ou um pequeno diagrama em texto.
+- machine → controle de pinos
+- time → controle de funções de temporização, como time.ticks_diff()
 
----
+**Fluxo principal do programa (main.py)**
+
+O programa opera em um laço infinito (while True) a cada 50ms, estruturado da seguinte forma:
+
+* **Sensoriamento e lógica**: Lê as entradas analógicas (acelerador e freio), calcula a variação brusca da pressão e aciona a máquina de estados (Livre, Frenagem Normal ou Pânico/ABS).
+* **Dinâmica Veicular**: Atualiza continuamente a velocidade virtual da moto, aplicando as regras matemáticas de aceleração, inércia e desaceleração.
+* **Atuação não-bloqueante**: Controla o LED (fixo no freio normal, pulsante no ABS) utilizando o relógio interno (time.ticks_ms()) para evitar travamentos (sleep), além de enviar a telemetria via serial.
+
+**Estrutura de funcionamento**
+
+O programa se divide em duas funcionalidades básicas:
+
+* **Simulação da dinâmica veicular**:
+A velocidade atual do veículo é calculada em tempo real a partir da leitura dos potenciômetros que representam o acelerador e o freio. Caso o freio esteja "solto", a velocidade atual é incrementada em 1.5% do valor lido do potenciômetro do acelerador (cuja leitura é retornada pela função ler_acelerador() e vai de 0 a 100).
+Caso não haja nenhuma pressão no acelerador ou no freio, a velocidade atual é decrementada em 0.3, para simular o atrito com o ambiente que faz com que o veículo perca velocidade aos poucos.
+Se houver alguma pressão no freio, a perda de velocidade é calculada de forma proporcional a ela, que pode ser de 2% da força aplicada ao freio ou um valor fixo de 2.5, quando o modo PÂNICO é ativado, de modo a prover uma frenagem com segurança.
+Em todos esses casos, o programa emite status iterativos no terminal, alertando sobre o estado atual de aceleração/frenagem.
+* **Lógica da ECU e Status de terminal**:
+A máquina de estados avalia as variações de pressão e velocidade, refletindo o comportamento no terminal e no LED:
+
+* **LIVRE/SOLTO**: O freio não está sendo utilizado. A inércia ou o acelerador controlam a dinâmica. *LED apagado*.
+
+* **FRENAGEM NORMAL**: Acionamento progressivo e suave do freio, ou frenagens em baixa velocidade (< 20 km/h). A desaceleração obedece diretamente à pressão no manete de freio. *LED com luz contínua*.
+
+* **PÂNICO (ABS)**: O sistema detecta uma variação brusca de pressão no freio em um intervalo de tempo curto, indicando risco de travamento em alta velocidade. A ECU assume a modulação do freio e a válvula atua de forma não-bloqueante. *LED pisca*.
+
+**Temporização**
+
+O programa opera em um laço contínuo que atualiza as informações a cada 50ms. Desse modo, o tempo de resposta entre um comando de aceleração ou frenagem e a ação tomada pela ECU ocorre em um tempo curto o bastante para simular o funcionamento de um sistema de segurança ABS da vida real.
+
+**Interação entre componentes**
+
+Mudança no sinal do potênciometro do acelerador ou do freio → Processamento do estado atual pela ECU → Mudança no sinal luminoso do LED (se necessário)
 
 ## 3️⃣ Componentes Utilizados na Simulação
-
-Liste os principais componentes definidos no `diagram.json`, por exemplo:
-
-- Tipo de placa utilizada  
-- LEDs, botões, sensores, atuadores, etc.  
-- Função de cada componente no sistema  
-
----
+| Componente                 | Função                                                                                                         |
+|----------------------------|----------------------------------------------------------------------------------------------------------------|
+| **ESP32** | Microcontrolador principal responsável por processar a dinâmica veicular e a lógica da ECU do ABS.             |
+| **Potenciômetro Deslizante 1** | Simula o punho do acelerador, variando o sinal analógico para aumentar a velocidade virtual da moto.           |
+| **Potenciômetro Deslizante 2** | Simula o manete de freio, medindo a pressão aplicada pelo piloto para calcular a desaceleração ou disparar o ABS. |
+| **LED Vermelho** | Atua como a válvula solenoide do ABS. Indicando frenagem normal ou controlada pelo sistema ABS |
+| **Resistor** | Garante a proteção elétrica do LED, limitando a corrente no circuito  |
 
 ## 4️⃣ Decisões Técnicas Relevantes
-
-Explique brevemente decisões importantes tomadas durante o desenvolvimento, como:
-
-- Organização do código  
-- Uso de funções, estados ou constantes  
-- Estratégias para temporização ou controle lógico  
-
----
+* **Temporização no LED**:
+No projeto se optou pelo uso de time.ticks_ms() no lugar de sleep() para pulsar o LED do ABS, com o intuito de garantir que não houvesse uma parada no fluxo do programa enquanto o LED estivesse piscando, ao entrar no modo PÂNICO.
+* **Mapeamento da velocidade atual**:
+Em vez de se mapear a velocidade atual diretamente pelo sinal do potenciômetro do acelerador, se escolheu uma abordagem independente, onde o cálculo da velocidade depende não apenas do acelerador como variável, mas também do estado do freio. Isso permitiu simular de forma realística as mudanças na velocidade de veículos reais, que é impactada por fatores como freio, e atrito com o ambiente, além do sinal do acelerador.
+* **Detecção de modo PÂNICO**:
+O acionamento do ABS não avalia apenas a força total no manete, mas sim a taxa de variação da pressão (comparando o ciclo atual com o anterior). Isso emula o comportamento real de uma ECU, que detecta o travamento da roda através de mudanças bruscas na força aplicada ao manete.
+* **Escolha dos potenciômetros**:
+A escolha por potenciômetros deslizantes em portas analógicas foi feita para simular o curso real e progressivo de um manete de freio e de um punho de aceleração (0% a 100% de pressão).
 
 ## 5️⃣ Resultados Obtidos
 
-Descreva o comportamento final do sistema:
+Ao deslizar o potenciômetro do acelerador e permitir que a velocidade atual ultrapasse a barreira dos 20 km/h, é possível perceber que, ao deslizar o potenciômetro do freio de forma brusca, o LED começa a piscar rapidamente; esse é o comportamento esperado, uma vez que frenagens bruscas em momentos onde a velocidade atual é superior a 20 km/h devem ativar o modo PÂNICO, que deve, de fato, enviar o sinal para que o LED pisque.
+No caso de frenagens graduais, vemos que o LED permanece aceso continuamente de forma correta, já que o modo PÂNICO é ativo apenas com frenagens bruscas em velocidades acima de 20 km/h e frenagens comuns devem, de fato, deixar o LED aceso de forma contínua.
+Em velocidades abaixo de 20 km/h, temos que qualquer pressão dada no potenciômetro de freio faz com que o LED fique aceso de forma contínua. Esse é o comportamento esperado, já que, nessa velocidade, mesmo frenagens bruscas não devem ativar o modo PÂNICO.
 
-- O que funciona corretamente  
-- Quais requisitos foram atendidos  
-- Resultado observado na simulação do Wokwi  
+## 6️⃣ Comentários Adicionais
 
----
+No final do laço de repetição principal, são incluídas algumas "travas de segurança", que atribuem 0 à velocidade atual caso ela tenha sido decrementada para um valor menor que zero (impossibilitando velocidades negativas) e 140 caso a velocidade tenha sido incrementada a um valor maior que 140.
 
-## 6️⃣ Comentários Adicionais (Opcional)
+**Dificuldades encontradas**
+- Fazer com que o LED piscasse no modo PÂNICO sem paralisar o programa.
+- Tornar o mecanismo de simulação da velocidade atual tão realista quanto possível.
+- Implementar o mecanismo de detecção de modo PÂNICO com base na pressão exercida no potenciômetro de freio.
 
-Utilize este espaço para comentar, se desejar:
+**Limitações**
+- Ausência de sensores capazes de simular de forma mais realista os sinais de acelerador e freio.
+- Fazer com que a execução do programa não fosse muito custosa em termos de processamento e gasto de tempo, por conta do actions.
 
-- Dificuldades encontradas  
-- Limitações da solução  
-- Melhorias que você faria com mais tempo  
-- Principais aprendizados durante o desafio  
+**Melhorias futuras**
+- Implementação de um mecanismo mais realista de simulação da desaceleração causada por fatores como vento e freio motor.
+- Utilização de diversos sistemas de segurança ABS combinados entre si, de modo a simular sistemas do tipo duplo, triplo ou quádruplo canal.
 
----
-
-> ✅ Este relatório faz parte da avaliação técnica.  
-> Clareza, objetividade e organização são tão importantes quanto o funcionamento do código.
-
----
-
-## 🆘 Suporte
-
-Em caso de dúvidas:
-
-- Consulte o material dos cursos EAD
-- Leia atentamente este README
-- Analise os logs das GitHub Actions
-- Utilize os canais oficiais para contato com os instrutores
-
-Boa sorte no processo seletivo.
-Mostre sua capacidade de pensar como um engenheiro de sistemas embarcados.
-****
+**Aprendizados**:
+- Utilização da plataforma de simulação Wokwi; integração via GitHub Actions e gerenciamento de chaves (Tokens).
