@@ -73,7 +73,8 @@ while True:
     
     pressao_anterior = pressao_atual
 
-    if time.ticks_diff(time.ticks_ms(), tempo_inicio) > 9000:
+    if time.ticks_diff(time.ticks_ms(), tempo_inicio) > 5000:
+        print("Fechando simulação pela trava de segurança de tempo")
         sys.exit(0)
     
     time.sleep(0.05)
