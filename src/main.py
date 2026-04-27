@@ -1,5 +1,6 @@
 from machine import Pin, ADC #type: ignore
 import time
+import sys
 
 pino_acelerador = ADC(Pin(34))
 pino_acelerador.atten(ADC.ATTN_11DB) 
@@ -23,6 +24,8 @@ def ler_acelerador():
 
 def ler_pressao_freio():
     return (pino_pressao_freio.read() / 4095) * 100
+
+tempo_inicio = time.ticks_ms()
 
 while True:
     tempo_atual = time.ticks_ms()
@@ -69,4 +72,8 @@ while True:
     print(f"Velocidade: {velocidade_atual:05.1f}km/h | Aceleração: {acelerador:05.1f}% | Freio: {pressao_atual:05.1f}% | {status_terminal}")
     
     pressao_anterior = pressao_atual
+
+    if time.ticks_diff(time.ticks_ms(), tempo_inicio) > 9000:
+        sys.exit(0)
+    
     time.sleep(0.05)

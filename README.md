@@ -88,7 +88,8 @@ Em velocidades abaixo de 20 km/h, temos que qualquer pressão dada no potenciôm
 
 ## 6️⃣ Comentários Adicionais
 
-No final do laço de repetição principal, são incluídas algumas "travas de segurança", que atribuem 0 à velocidade atual caso ela tenha sido decrementada para um valor menor que zero (impossibilitando velocidades negativas) e 140 caso a velocidade tenha sido incrementada a um valor maior que 140.
+* No final do laço de repetição principal, são incluídas algumas "travas de segurança", que atribuem 0 à velocidade atual caso ela tenha sido decrementada para um valor menor que zero (impossibilitando velocidades negativas) e 140 caso a velocidade tenha sido incrementada a um valor maior que 140.
+* Para que não ocorra problemas de timeout com a execução do actions, foi adicionada uma trava de segurança de tempo dentro do laço while que finaliza o programa quando o tempo de execução ultrapassa 9000ms.
 
 **Dificuldades encontradas**
 - Fazer com que o LED piscasse no modo PÂNICO sem paralisar o programa.
