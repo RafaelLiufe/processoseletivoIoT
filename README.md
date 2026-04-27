@@ -48,15 +48,15 @@ Em todos esses casos, o programa emite status iterativos no terminal, alertando 
 * **Lógica da ECU e Status de terminal**:
 A máquina de estados avalia as variações de pressão e velocidade, refletindo o comportamento no terminal e no LED:
 
-* **LIVRE/SOLTO**: O freio não está sendo utilizado. A inércia ou o acelerador controlam a dinâmica. *LED apagado*.
+    * **LIVRE/SOLTO**: O freio não está sendo utilizado. A inércia ou o acelerador controlam a dinâmica. *LED apagado*.
 
-* **FRENAGEM NORMAL**: Acionamento progressivo e suave do freio, ou frenagens em baixa velocidade (< 20 km/h). A desaceleração obedece diretamente à pressão no manete de freio. *LED com luz contínua*.
+    * **FRENAGEM NORMAL**: Acionamento progressivo e suave do freio, ou frenagens em baixa velocidade (< 20 km/h). A desaceleração obedece diretamente à pressão no manete de freio. *LED com luz contínua*.
 
-* **PÂNICO (ABS)**: O sistema detecta uma variação brusca de pressão no freio em um intervalo de tempo curto, indicando risco de travamento em alta velocidade. A ECU assume a modulação do freio e a válvula atua de forma não-bloqueante. *LED pisca*.
+    * **PÂNICO (ABS)**: O sistema detecta uma variação brusca de pressão no freio em um intervalo de tempo curto, indicando risco de travamento em alta velocidade. A ECU assume a modulação do freio e a válvula atua de forma não-bloqueante. *LED pisca*.
 
 **Temporização**
 
-O programa opera em um laço contínuo que atualiza as informações a cada 50ms. Desse modo, o tempo de resposta entre um comando de aceleração ou frenagem e a ação tomada pela ECU ocorre em um tempo curto o bastante para simular o funcionamento de um sistema de segurança ABS da vida real.
+O programa opera em um laço contínuo (while True) que atualiza as informações a cada 50ms. Desse modo, o tempo de resposta entre um comando de aceleração ou frenagem e a ação tomada pela ECU ocorre em um tempo curto o bastante para simular o funcionamento de um sistema de segurança ABS da vida real.
 
 **Interação entre componentes**
 
@@ -90,7 +90,7 @@ Em velocidades abaixo de 20 km/h, temos que qualquer pressão dada no potenciôm
 ## 6️⃣ Comentários Adicionais
 
 * No final do laço de repetição principal, são incluídas algumas "travas de segurança", que atribuem 0 à velocidade atual caso ela tenha sido decrementada para um valor menor que zero (impossibilitando velocidades negativas) e 140 caso a velocidade tenha sido incrementada a um valor maior que 140.
-* Optou-se por colocar o print("Teste") (necessário para o fim da execução do workflow do actions) após a primeira iteração do laço while, de modo a garantir para o workflow que não ocorrem erros até esse ponto do código.
+* Optou-se por colocar o print("Teste") (necessário para o fim da execução do workflow do actions) após a primeira iteração do laço while, de modo a garantir ao workflow que não ocorrem erros até esse ponto do código.
 
 **Dificuldades encontradas**
 - Fazer com que o LED piscasse no modo PÂNICO sem paralisar o programa.
