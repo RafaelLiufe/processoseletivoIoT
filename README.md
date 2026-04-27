@@ -90,6 +90,7 @@ Em velocidades abaixo de 20 km/h, temos que qualquer pressão dada no potenciôm
 ## 6️⃣ Comentários Adicionais
 
 * No final do laço de repetição principal, são incluídas algumas "travas de segurança", que atribuem 0 à velocidade atual caso ela tenha sido decrementada para um valor menor que zero (impossibilitando velocidades negativas) e 140 caso a velocidade tenha sido incrementada a um valor maior que 140.
+* Optou-se por colocar o print("Teste") (necessário para o fim da execução do workflow do actions) após a primeira iteração do laço while, de modo a garantir para o workflow que não ocorrem erros até esse ponto do código.
 
 **Dificuldades encontradas**
 - Fazer com que o LED piscasse no modo PÂNICO sem paralisar o programa.
