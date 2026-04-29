@@ -96,10 +96,11 @@ Em velocidades abaixo de 20 km/h, temos que qualquer pressão dada no potenciôm
 - Fazer com que o LED piscasse no modo PÂNICO sem paralisar o programa.
 - Tornar o mecanismo de simulação da velocidade atual tão realista quanto possível.
 - Implementar o mecanismo de detecção de modo PÂNICO com base na pressão exercida no potenciômetro de freio.
+- Fazer com que a execução do programa não fosse muito custosa em termos de processamento e gasto de tempo, por conta do actions.
 
 **Limitações**
 - Ausência de sensores capazes de simular de forma mais realista os sinais de acelerador e freio.
-- Fazer com que a execução do programa não fosse muito custosa em termos de processamento e gasto de tempo, por conta do actions.
+- impossibilidade de simular o fluido de freio, seus diferentes tipos e sua interação com as pinças de freio.
 
 **Melhorias futuras**
 - Implementação de um mecanismo mais realista de simulação da desaceleração causada por fatores como vento e freio motor.
