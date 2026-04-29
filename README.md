@@ -12,7 +12,7 @@ Este projeto objetiva implementar um sistema de segurança de freio do tipo ABS 
 Tal solução se demonstra útil como suporte didático a cursos de mecânica que necessitam de uma abordagem simples ao ensino prático de funcionamento do sistema de freio ABS, que é, hoje, o sistema de segurança de freios mais utilizado no mundo.
 
 <img src="./assets/Esquema.png" width="500">
-<i>Imagem 1: Esquema visual do funcionamento de um sistema de segurança ABS</i>
+<i>Imagem 1: Esquema visual do funcionamento de um sistema de segurança ABS.</i>
 
 O sistema de segurança de freios ABS baseia-se na ação de uma ECU (Electronic Control Unit) que monitora constantemente a velocidade do veículo e a pressão dirigida ao manete de freio e envia sinais para as pinças controladoras dos freios na(s) roda(s). Caso a velocidade atual do veículo esteja acima de uma certa velocidade mínima (geralmente 20 km/h) e se distribua sobre o manete de freio uma pressão alta em um tempo muito curto, a ECU envia sinais para as pinças de freio na roda de modo a evitar o travamento desta, intercalando as frenagens.
 
@@ -21,7 +21,7 @@ No projeto, o microcontrolador ESP32 simula a ação da ECU de um sistema ABS re
 ## 2️⃣ Arquitetura do Sistema Embarcado
 
 <img src="./assets/Circuito.png" width="500">
-<i>Imagem 2: Circuito do projeto. O potenciômetro deslizante de cima representa o punho do acelerador, enquanto o de baixo representa o manete de freio</i>
+<i>Imagem 2: Circuito do projeto. O potenciômetro deslizante de cima representa o punho do acelerador, enquanto o de baixo representa o manete de freio.</i>
 
  **Bibliotecas Utilizadas**
 
