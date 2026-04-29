@@ -72,7 +72,7 @@ Mudança no sinal do potênciometro do acelerador ou do freio → Processamento 
 | **Resistor** | Garante a proteção elétrica do LED, limitando a corrente no circuito  |
 
 ## 4️⃣ Decisões Técnicas Relevantes
-* **Temporização no LED**:
+* **Temporização não-bloqueante**:
 No projeto se optou pelo uso de time.ticks_ms() no lugar de sleep() para pulsar o LED do ABS, com o intuito de garantir que não houvesse uma parada no fluxo do programa enquanto o LED estivesse piscando, ao entrar no modo PÂNICO.
 * **Mapeamento da velocidade atual**:
 Em vez de se mapear a velocidade atual diretamente pelo sinal do potenciômetro do acelerador, se escolheu uma abordagem independente, onde o cálculo da velocidade depende não apenas do acelerador como variável, mas também do estado do freio. Isso permitiu simular de forma realística as mudanças na velocidade de veículos reais, que é impactada por fatores como freio, e atrito com o ambiente, além do sinal do acelerador.
