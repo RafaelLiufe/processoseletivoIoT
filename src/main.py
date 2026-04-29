@@ -29,6 +29,7 @@ def ler_acelerador():
 def ler_pressao_freio():
     return (pino_pressao_freio.read() / 4095) * 100
 
+# Variável para marcar a primeira iteração do while
 p_iteracao = True
 
 while True:
